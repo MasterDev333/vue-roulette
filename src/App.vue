@@ -1,28 +1,39 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="roulette-game">
+    <div class="game">
+      <div class="game-left">
+        <Wheel /> 
+        <History />
+      </div>
+      <div class="game-center">
+        <BettingTable />
+        <GameControl /> 
+      </div>
+      <div class="game-right">
+        <ChipField />
+      </div>
+    </div>
+    <Summary />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Wheel from './components/Wheel'
+import BettingTable from './components/BettingTable'
+import History from './components/History'
+import ChipField from './components/ChipField'
+import GameControl from './components/GameControl'
+import Summary from './components/Summary'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Wheel,
+    BettingTable,
+    History,
+    ChipField,
+    GameControl,
+    Summary
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

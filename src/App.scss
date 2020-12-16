@@ -1,0 +1,85 @@
+:root {
+  --yellow-color: #f7d31d;
+  --black-color: #2a2a2a;
+  --green-color: #114702;
+  --red-color: #D60015;
+  --gray-color: #C9C9C9;
+  --light-green-color: #19ED14;
+}
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+*:focus {
+  outline: none;
+}
+ul {
+  padding-left: 0;
+  list-style: none;
+}
+a, button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+img {
+  max-width: 100%;
+}
+.text-red { color: var(--red-color) !important; }
+.text-gray { color: var(--gray-color) !important; }
+.text-light_green { color: var(--light-green-color) !important; }
+
+.roulette-game {
+  margin: auto;
+  background: url('assets/images/bg.jpg') no-repeat center;
+  background-size: cover;
+  overflow: hidden;
+}
+.game {
+  display: flex;
+  margin: auto;
+  padding: clamp(10px, 4vw, 40px);
+  padding-bottom: clamp(10px, 2vw, 20px);
+  gap: clamp(10px, 2vw, 20px);
+  justify-content: center;
+}
+.game-left {
+  max-width: 35vw;
+}
+.game-center {
+  max-width: 35vw;
+}
+.game-right {
+  max-width: clamp(100px, 7.3vw, 140px);
+  flex-shrink: 0;
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 1440px) {
+  .game-left {
+    max-width: 40vw;
+  }
+  .game-center {
+    max-width: 40vw;
+  }
+}
+@media only screen and (max-width: 1080px) {
+  .game {
+    padding: 10px;
+    align-items: center;
+    flex-direction: column;
+  }
+  .game-center {
+    max-width: 48vw;
+  }
+  .game-right {
+    position: absolute;
+    top: 42vw;
+    right: 9vw;
+    max-width: 9.2vw;
+  }
+}
