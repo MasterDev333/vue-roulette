@@ -41,10 +41,10 @@ export default {
   },
   methods: {
     muteAudio () {
-      this.$store.dispatch('muteAudio')
+      this.$store.dispatch('muteAudio');
     },
     playAudio() {
-      this.$store.dispatch('playAudio')
+      this.$store.dispatch('playAudio');
     },
     settings() {
     }

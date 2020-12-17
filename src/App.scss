@@ -83,3 +83,10 @@ img {
     max-width: 9.2vw;
   }
 }
+
+
+@keyframes orbit2 {
+	0% { 	transform: rotate(0deg) translateX(-300px) }
+  50%   {  transform: rotate(360deg) translateX(-230px); }
+  100% { transform: rotate(720deg) translateX(-170px); }
+}

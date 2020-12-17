@@ -1,18 +1,9 @@
 <template>
   <div class="history">
     <div class="history-items"> 
-      <div class="history-item"><span class="history-item__value text-light_green">0</span></div>
-      <div class="history-item"><span class="history-item__value text-gray">2</span></div>
-      <div class="history-item"><span class="history-item__value text-red">8</span></div>
-      <div class="history-item"><span class="history-item__value text-red">1</span></div>
-      <div class="history-item"><span class="history-item__value"></span></div>
-      <div class="history-item"><span class="history-item__value"></span></div>
-      <div class="history-item"><span class="history-item__value"></span></div>
-      <div class="history-item"><span class="history-item__value"></span></div>
-      <div class="history-item"><span class="history-item__value"></span></div>
-      <div class="history-item"><span class="history-item__value"></span></div>
-      <div class="history-item"><span class="history-item__value"></span></div>
-      <div class="history-item"><span class="history-item__value"></span></div>
+      <div class="history-item" v-for="(history, index) in historyArr" :key="index">
+        <span class="history-item__value text-light_green">{{ history }}</span>
+      </div>
     </div>
     <div class="history-tooltip">
       <p class="history-min">MIN €<span class="history-min__value">0.10</span></p>
@@ -23,10 +14,24 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name: 'History',
-  props: {
-    msg: String
+  computed: {
+    ...mapState([
+      'num_count',
+      'finished_num',
+      'historyArr',
+    ])
+  },
+  watch: {
+    finished_num(newValue) {
+      if (newValue == this.num_count - 1) {
+        alert('finished');
+        this.$store.dispatch('finishedRound');
+      }
+    }
   }
 }
 </script>
