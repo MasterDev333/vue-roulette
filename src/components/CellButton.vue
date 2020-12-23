@@ -4,6 +4,7 @@
     :class="this.buttonData.buttonType"
     @mouseover="enterCell"
     @mouseleave="leaveCell"
+    @dragleave="leaveCell"
     @click="clickCell"
     @drop="dropDrag"
     @dragover="enterCell"
@@ -30,7 +31,6 @@ export default {
   },
   methods: {
     enterCell() {
-      console.log("enterCell", this.drag);
       if (this.drag) this.$parent.enterCell(this.buttonData.cells);
     },
     leaveCell() {
@@ -57,7 +57,6 @@ export default {
           return c.price;
         })
       );
-      console.log("maxPrice", maxPrice, placedChips);
       const maxChip = this.chips.find((chip) => chip.price === maxPrice);
       return maxChip ? maxChip.src : null;
     },
