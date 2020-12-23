@@ -98,9 +98,10 @@ export default {
   z-index: 3;
 }
 .chip {
-  width: 3.5vw;
+  width: 3vw;
+  padding: 0.2vw 0 0 0.2vw;
   img {
-    max-width: 3.5vw;
+    max-width: 3vw;
   }
 }
 </style>

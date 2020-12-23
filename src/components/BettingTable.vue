@@ -83,10 +83,10 @@
               <CellButton :buttonData="buttonData[10]" />
             </div>
             <div class="row4">
-              <div class="btn self" data-type="sector" data-sector="4"></div>
+              <CellButton :buttonData="buttonData[42]" />
             </div>
             <div class="row5">
-              <div class="btn self" data-type="sector" data-sector="7"></div>
+              <CellButton :buttonData="buttonData[45]" />
             </div>
           </div>
           <div class="col2">
@@ -108,7 +108,7 @@
               <CellButton :buttonData="buttonData[21]" />
             </div>
             <div class="row5">
-              <div class="btn self" data-type="sector" data-sector="8"></div>
+              <CellButton :buttonData="buttonData[46]" />
             </div>
           </div>
           <div class="col3">
@@ -129,10 +129,10 @@
               <CellButton :buttonData="buttonData[31]" />
             </div>
             <div class="row4">
-              <div class="btn self" data-type="sector" data-sector="5"></div>
+              <CellButton :buttonData="buttonData[43]" />
             </div>
             <div class="row5">
-              <div class="btn self" data-type="sector" data-sector="9"></div>
+              <CellButton :buttonData="buttonData[47]" />
             </div>
           </div>
           <div class="col4">
@@ -153,21 +153,21 @@
               <CellButton :buttonData="buttonData[41]" />
             </div>
             <div class="row4">
-              <div class="btn self" data-type="sector" data-sector="6"></div>
+              <CellButton :buttonData="buttonData[44]" />
             </div>
             <div class="row5">
-              <div class="btn self" data-type="sector" data-sector="10"></div>
+              <CellButton :buttonData="buttonData[48]" />
             </div>
           </div>
           <div class="col5">
             <div class="row1">
-              <div class="btn self" data-type="sector" data-sector="1"></div>
+              <CellButton :buttonData="buttonData[49]" />
             </div>
             <div class="row2">
-              <div class="btn self" data-type="sector" data-sector="2"></div>
+              <CellButton :buttonData="buttonData[50]" />
             </div>
             <div class="row3">
-              <div class="btn self" data-type="sector" data-sector="3"></div>
+              <CellButton :buttonData="buttonData[51]" />
             </div>
           </div>
         </div>
@@ -180,6 +180,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 import CellButton from "../components/CellButton";
 
 export default {
@@ -233,10 +234,25 @@ export default {
         { id: 39, cells: [7, 10], buttonType: "vertical", chips: [] },
         { id: 40, cells: [10, 12], buttonType: "horizontal", chips: [] },
         { id: 41, cells: [10], buttonType: "self", chips: [] },
+        // bottom sectors
+        { id: 42, cells: [1, 2, 3, 4, 5, 6], buttonType: "self", chips: [] },
+        { id: 43, cells: [4, 5, 6, 7, 8, 9], buttonType: "self", chips: [] },
+        { id: 44, cells: [7, 8, 9, 10, 11, 12], buttonType: "self", chips: [] },
+        { id: 45, cells: [2, 4, 6, 8, 10, 12], buttonType: "self", chips: [] },
+        { id: 46, cells: [1, 3, 5, 7, 9, 12], buttonType: "self", chips: [] },
+        { id: 47, cells: [2, 4, 6, 8, 10, 11], buttonType: "self", chips: [] },
+        { id: 48, cells: [1, 3, 5, 7, 9, 11], buttonType: "self", chips: [] },
+
+        // right sectors
+        { id: 49, cells: [3, 6, 9, 11], buttonType: "self", chips: [] },
+        { id: 50, cells: [2, 5, 8, 12], buttonType: "self", chips: [] },
+        { id: 51, cells: [1, 4, 7, 10], buttonType: "self", chips: [] },
       ], // chips for id: 0, cells
     };
   },
-  computed: {},
+  computed: {
+    ...mapState(["drag"]),
+  },
   methods: {
     enterCell: function(numbers) {
       this.hoverNumbers = numbers;
@@ -246,7 +262,12 @@ export default {
     },
     clickCell: function(id, price) {
       const clickedCell = this.buttonData.find((e) => e.id === id);
-      clickedCell.chips = clickedCell.chips.concat([{ price, quantity: 1 }]);
+      const existingChip = clickedCell.chips.find(
+        (chip) => chip.price === price
+      );
+      if (existingChip) existingChip.quantity += 1;
+      else
+        clickedCell.chips = clickedCell.chips.concat([{ price, quantity: 1 }]);
     },
     classBindHovering: function(number) {
       return {
@@ -254,9 +275,10 @@ export default {
       };
     },
     isHovering: function(number) {
-      return this.hoverNumbers && this.hoverNumbers.includes(number);
+      return (
+        this.drag && this.hoverNumbers && this.hoverNumbers.includes(number)
+      );
     },
-    // placeChipHere: function(chipPrice, cellPlace) {},
   },
 };
 </script>
@@ -329,7 +351,9 @@ export default {
       height: 4.4vw;
     }
     .row5 .btn {
-      top: 24.3vw;
+      top: 23.6vw;
+      width: calc(calc(100% - 9.7vw) / 4);
+      height: 4.4vw;
     }
   }
 }
