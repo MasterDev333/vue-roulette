@@ -2,15 +2,17 @@
   --yellow-color: #f7d31d;
   --black-color: #2a2a2a;
   --green-color: #114702;
-  --red-color: #D60015;
-  --gray-color: #C9C9C9;
-  --light-green-color: #19ED14;
+  --red-color: #d60015;
+  --gray-color: #c9c9c9;
+  --light-green-color: #19ed14;
 }
 body {
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 *:focus {
@@ -20,22 +22,29 @@ ul {
   padding-left: 0;
   list-style: none;
 }
-a, button {
+a,
+button {
   background: transparent;
   border: none;
   cursor: pointer;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 img {
   max-width: 100%;
 }
-.text-red { color: var(--red-color) !important; }
-.text-gray { color: var(--gray-color) !important; }
-.text-light_green { color: var(--light-green-color) !important; }
+.text-red {
+  color: var(--red-color) !important;
+}
+.text-gray {
+  color: var(--gray-color) !important;
+}
+.text-light_green {
+  color: var(--light-green-color) !important;
+}
 
 .roulette-game {
   margin: auto;
-  background: url('assets/images/bg.jpg') no-repeat center;
+  background: url("assets/images/bg.jpg") no-repeat center;
   background-size: cover;
   overflow: hidden;
 }
@@ -84,9 +93,28 @@ img {
   }
 }
 
-
 @keyframes orbit2 {
-	0% { 	transform: rotate(0deg) translateX(-300px) }
-  50%   {  transform: rotate(360deg) translateX(-230px); }
-  100% { transform: rotate(720deg) translateX(-170px); }
+  0% {
+    transform: rotate(0deg) translateX(-15.6vw);
+  }
+  50% {
+    transform: rotate(360deg) translateX(-11.97vw);
+  }
+  100% {
+    transform: rotate(720deg) translateX(-8.85vw);
+  }
+}
+
+@media only screen and (max-width: 1440px) {
+  @keyframes orbit2 {
+    0% {
+      transform: rotate(0deg) translateX(-17vw);
+    }
+    50% {
+      transform: rotate(360deg) translateX(-13vw);
+    }
+    100% {
+      transform: rotate(720deg) translateX(-10vw);
+    }
+  }
 }
