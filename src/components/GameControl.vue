@@ -1,71 +1,185 @@
 <template>
   <div class="controls">
     <div class="controls-buttons">
-      <button class="btn control-button">
-        <img class="control-button__img" src="../assets/images/btn_pause.png" alt="">
+      <button
+        class="btn control-button"
+        :class="{
+          disabled: this.isAvailablePlace(),
+        }"
+        @click="cancelLast"
+      >
+        <img
+          class="control-button__img"
+          src="../assets/images/btn_pause.png"
+          alt=""
+        />
         <span class="control-button__text">ANNULLA</span>
       </button>
-      <button class="btn control-button">
-        <img class="control-button__img" src="../assets/images/btn_cancel.png" alt="">
+      <button
+        class="btn control-button"
+        :class="{
+          disabled: this.isAvailablePlace(),
+        }"
+        @click="clearAll"
+      >
+        <img
+          class="control-button__img"
+          src="../assets/images/btn_cancel.png"
+          alt=""
+        />
         <span class="control-button__text">CANCELLA</span>
       </button>
-      <button class="btn control-button">
-        <img class="control-button__img" src="../assets/images/btn_double.png" alt="">
+      <button
+        class="btn control-button"
+        :class="{
+          disabled: this.isAvailablePlace(),
+        }"
+        @click="doubleChip"
+      >
+        <img
+          class="control-button__img"
+          src="../assets/images/btn_double.png"
+          alt=""
+        />
         <span class="control-button__text">RADDOPPIA</span>
       </button>
-      <button class="btn control-button">
-        <img class="control-button__img" src="../assets/images/btn_turbo.png" alt="">
-        <span class="control-button__text">TURBO</span>
+      <button
+        class="btn control-button btn-turn btn-portrait"
+        :class="{
+          disabled: this.isAvailablePlace(),
+        }"
+        @click="turnRoulette"
+      >
+        <img
+          class="control-button__img"
+          src="../assets/images/btn_reset.png"
+          alt=""
+        />
+        <span class="control-button__text">GIRA</span>
       </button>
-      <button class="btn control-button btn-turn" :class="{disabled: is_turning}" @click="turnRoulette">
-        <img class="control-button__img" src="../assets/images/btn_reset.png" alt="">
+      <button
+        class="btn control-button"
+        :class="{
+          disabled: this.isAvailablePlace(),
+        }"
+      >
+        <img
+          class="control-button__img"
+          src="../assets/images/btn_ripunta.png"
+          alt=""
+        />
+        <span class="control-button__text">RIPUNTA</span>
+      </button>
+      <button
+        class="btn control-button"
+        :class="{
+          disabled: this.isAvailableTurn(),
+        }"
+        @click="autoStart"
+      >
+        <img
+          class="control-button__img"
+          src="../assets/images/btn_auto_start.png"
+          alt=""
+        />
+        <span class="control-button__text">AUTOSTART</span>
+      </button>
+      <button
+        class="btn control-button btn-turn btn-landscape"
+        :class="{
+          disabled: this.isAvailableTurn(),
+        }"
+        @click="turnRoulette"
+      >
+        <img
+          class="control-button__img"
+          src="../assets/images/btn_reset.png"
+          alt=""
+        />
         <span class="control-button__text">GIRA</span>
       </button>
     </div>
-    <div class="controls-slider">
-      <img src="../assets/images/scroll-bg.png" alt="" class="controls-slider__bg">
+    <!-- <div class="controls-slider">
+      <img
+        src="../assets/images/scroll-bg.png"
+        alt=""
+        class="controls-slider__bg"
+      />
       <p class="controls-slider__amount">
         <span class="controls-slider__amount--number">10</span> GIRI
       </p>
       <div class="slider">
-        <span class="slider-label">AVVIA AUTOMATICO</span>  
+        <span class="slider-label">AVVIA AUTOMATICO</span>
       </div>
       <button class="btn-play">
-        <img src="../assets/images/btn_play.png" alt="">
+        <img src="../assets/images/btn_play.png" alt="" />
       </button>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapGetters, mapState } from "vuex";
 
 export default {
-  name: 'GameControl',
+  name: "GameControl",
   computed: {
-    ...mapState([
-      'is_turning'
-    ]),
+    ...mapState(["is_turning", "mode"]),
+    ...mapGetters(["stakeTotal"]),
   },
   methods: {
+    cancelLast() {
+      this.$store.dispatch("cancelLast");
+    },
+    clearAll() {
+      this.$store.dispatch("clearAll");
+    },
     turnRoulette() {
-      this.$store.dispatch('turnRoulette')
-    }
-  }
-}
+      this.$store.dispatch("setMode", { mode: "normalSpin-start" });
+    },
+    doubleChip() {
+      this.$store.dispatch("doubleChip");
+    },
+    autoStart() {
+      this.$store.dispatch("setMode", { mode: "autoStart-start" });
+    },
+
+    isAvailableTurn() {
+      return (
+        this.is_turning ||
+        !this.stakeTotal ||
+        this.mode === "autoStart-start" ||
+        this.mode === " normalSpin-start"
+      );
+    },
+    isAvailablePlace() {
+      return (
+        this.is_turning ||
+        this.mode === "autoStart-start" ||
+        this.mode === " normalSpin-start"
+      );
+    },
+  },
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 .controls {
-  margin-top: 30px;
   text-align: center;
+  margin-top: 1vw;
+  width: 49vw;
+  margin-left: -3vw;
   &-buttons {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
   }
   .control-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: -webkit-center;
     max-width: 20%;
     background-color: transparent;
     border: none;
@@ -75,14 +189,26 @@ export default {
     }
     &__img {
       display: block;
-      transition: all .3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      width: 6vw;
     }
     &__text {
       display: block;
       margin-top: 10px;
       color: white;
-      font-size: clamp(12px, 1.3vw ,20px);
+      font-size: clamp(12px, 1.3vw, 20px);
+      width: 6vw;
     }
+  }
+  .btn-portrait {
+    display: none;
+  }
+  .btn-landscape {
+    display: block;
+  }
+
+  .control-button.btn-turn img {
+    width: 9vw;
   }
   &-slider {
     position: relative;
@@ -123,12 +249,39 @@ export default {
     }
   }
 }
-.btn-turn.disabled {
+.btn.disabled {
   filter: grayscale(1);
   cursor: not-allowed;
   pointer-events: none;
 }
 @media screen and (max-width: 1080px) {
+  .controls {
+    margin-left: -16vw;
+    width: 80vw;
+    &-buttons {
+      align-items: center;
+      justify-content: center;
+      gap: 1vw;
+    }
+    .control-button {
+      &__img {
+        width: 12vw;
+      }
+      &__text {
+        width: auto;
+      }
+    }
+    .control-button.btn-turn img {
+      width: 16vw;
+      max-width: 16vw;
+    }
+    .btn-portrait {
+      display: block;
+    }
+    .btn-landscape {
+      display: none;
+    }
+  }
   .controls-slider {
     width: clamp(200px, 38vw, 412px);
     &__amount {

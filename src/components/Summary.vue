@@ -1,37 +1,52 @@
 <template>
   <div class="summary">
     <ul class="summary-info">
-      <li>SALDO MODALITA DEMO <span class="text-white">€</span><span class="total-money">{{ money }}</span></li>
+      <li>
+        SALDO MODALITA DEMO <span class="text-white">€</span
+        ><span class="total-money">{{ money }}</span>
+      </li>
       <li><span>PIAZZA LE TUE PUNTATE</span></li>
-      <li>PUNTATA TOTALE <span class="text-white">€</span><span class="total-shake">{{ winTot }}</span></li>
+      <li>
+        PUNTATA TOTALE <span class="text-white">€</span
+        ><span class="total-shake">{{ stakeTotal }}</span>
+      </li>
     </ul>
     <div class="summary-controls">
-      <button class="btn btn-summary-control btn-mute" :class="{ 'active': !audio_enabled }" @click="muteAudio">
-        <img src="../assets/images/btn_mute.png" alt="mute">
+      <button
+        class="btn btn-summary-control btn-mute"
+        :class="{ active: !audio_enabled }"
+        @click="muteAudio"
+      >
+        <img src="../assets/images/btn_mute.png" alt="mute" />
       </button>
-      <button class="btn btn-summary-control btn-volumn" :class="{ 'active': audio_enabled }" @click="playAudio">
-        <img src="../assets/images/btn_volumn.png" alt="audio">
+      <button
+        class="btn btn-summary-control btn-volumn"
+        :class="{ active: audio_enabled }"
+        @click="playAudio"
+      >
+        <img src="../assets/images/btn_volumn.png" alt="audio" />
       </button>
       <button class="btn btn-summary-control btn-setting" @click="settings">
-        <img src="../assets/images/btn_setup.png" alt="settings">
+        <img src="../assets/images/btn_setup.png" alt="settings" />
       </button>
     </div>
   </div>
-</template> 
+</template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapGetters, mapState } from "vuex";
 
 export default {
-  name: 'Summary',
+  name: "Summary",
   computed: {
     ...mapState([
-      'money',
-      'winTot',
-      'audio_disabled',
-      'audio_enabled',
-      'audio_bg'
+      "money",
+      "winTot",
+      "audio_disabled",
+      "audio_enabled",
+      "audio_bg",
     ]),
+    ...mapGetters(["stakeTotal"]),
   },
   mounted() {
     // Play audio when loading
@@ -40,16 +55,15 @@ export default {
     }
   },
   methods: {
-    muteAudio () {
-      this.$store.dispatch('muteAudio');
+    muteAudio() {
+      this.$store.dispatch("muteAudio");
     },
     playAudio() {
-      this.$store.dispatch('playAudio');
+      this.$store.dispatch("playAudio");
     },
-    settings() {
-    }
-  }
-}
+    settings() {},
+  },
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -86,7 +100,7 @@ export default {
   border: none;
   cursor: pointer;
   text-align: center;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   &:hover,
   &.active {
     background-color: var(--yellow-color);

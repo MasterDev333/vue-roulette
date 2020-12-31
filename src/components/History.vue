@@ -1,104 +1,155 @@
 <template>
-  <div class="history">
-    <div class="history-items"> 
-      <div class="history-item" v-for="(history, index) in historyArr" :key="index">
-        <span class="history-item__value text-light_green">{{ history }}</span>
+  <div class="history-wrapper">
+    <span class="history-title">
+      ULTIMI
+    </span>
+    <div class="history-items-wrapper">
+      <div class="history-items">
+        <div
+          class="history-item"
+          v-for="(history, index) in historyArr.slice(
+            Math.max(0, historyArr.length - 12),
+            Math.max(6, historyArr.length - 6)
+          )"
+          :key="index"
+        >
+          <span
+            class="history-item__value"
+            v-bind:style="{ color: getColor(history) }"
+            >{{ history }}</span
+          >
+        </div>
       </div>
-    </div>
-    <div class="history-tooltip">
-      <p class="history-min">MIN €<span class="history-min__value">0.10</span></p>
-      <p class="history-max">MAX €<span class="history-max__value">100</span></p>
-      <p class="history-max-table">MAX TAVOLO €<span class="history-max-table__vale">1000</span></p>
+      <div class="history-items">
+        <div
+          class="history-item"
+          v-for="(history, index) in historyArr.slice(
+            Math.max(6, historyArr.length - 6),
+            Math.max(12, historyArr.length)
+          )"
+          :key="index"
+        >
+          <span
+            class="history-item__value"
+            v-bind:style="{ color: getColor(history) }"
+            >{{ history }}</span
+          >
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from "vuex";
 
 export default {
-  name: 'History',
+  name: "History",
   computed: {
     ...mapState([
-      'num_count',
-      'finished_num',
-      'historyArr',
-    ])
+      "num_count",
+      "finished_num",
+      "historyArr",
+      "wheel_numbers",
+      "wheel_colors",
+    ]),
   },
   watch: {
     finished_num(newValue) {
       if (newValue == this.num_count - 1) {
-        alert('finished');
-        this.$store.dispatch('finishedRound');
+        alert("finished");
+        this.$store.dispatch("finishedRound");
+      }
+    },
+  },
+  methods: {
+    getColor(number) {
+      let index = -1;
+      this.wheel_numbers.forEach((n, idx) => {
+        if (n === number) index = idx;
+      });
+      return index !== -1 ? this.wheel_colors[index] : "transparent";
+    },
+  },
+};
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style lang="scss" scoped>
+.history-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4vw;
+  padding: 2vw 1vw;
+  background-color: var(--green-color);
+  border-radius: 20px;
+  height: 28vw;
+  align-items: center;
+  .history-title {
+    color: white;
+  }
+  .history-items-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+    margin-top: 1vw;
+    .history-items {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      height: 100%;
+      place-content: space-between;
+      align-items: center;
+      margin-top: 2vw;
+      margin-bottom: 0;
+      min-width: 20px;
+    }
+    .history-items:nth-child(1) {
+      margin-bottom: 30px;
+      margin-top: 0;
+    }
+    .history-item {
+      display: flex;
+      padding: 5px;
+      align-items: center;
+      // background-color: white;
+      color: white;
+      border-radius: 50%;
+      font-size: clamp(20px, 1vw, 40px);
+      font-weight: bold;
+      text-align: center;
+      justify-content: center;
+      height: 2.8vw;
+    }
+  }
+}
+@media screen and (max-width: 1080px) {
+  .history-wrapper {
+    height: 60vw;
+    margin-top: 0;
+    .history-items-wrapper {
+      .history {
+        position: absolute;
+        left: 9.2vw;
+        flex-wrap: wrap;
+      }
+      .history-items {
+        width: 100%;
+        height: 100%;
+        max-width: clamp(20px, 5vw, 50px);
+        flex-direction: column;
+        min-width: 20px;
+      }
+      .history-item {
+        height: 6.3vw;
+        font-size: clamp(15px, 2.2vw, 35px);
+      }
+      .history-item:nth-child(7) {
+        margin-left: 0;
+        margin-top: 3.2vw;
       }
     }
   }
 }
-</script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-  .history {
-    display: flex;
-    margin-top: 20px;
-    align-items: center;
-  }
-  .history-items {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: clamp(300px, 24.7vw, 475px);
-    gap: 2px;
-  }
-  .history-item {
-    display: flex;
-    padding: 5px;
-    width: clamp(40px, 3.6vw, 70px);
-    height: clamp(40px, 3.6vw, 70px);
-    align-items: center;
-    background-color: var(--green-color);
-    border-radius: 50%;
-    font-size: clamp(20px, 2vw, 40px);
-    text-align: center;
-    justify-content: center;
-  }
-    .history-item:nth-child(7) {
-      margin-left: clamp(10px, 1.5vw, 30px);
-    }
-  .history-tooltip {
-    margin-left: clamp(10px, 1.5vw, 30px);
-    color: white;
-    font-size: clamp(16px, 1vw, 20px);
-  }
-    .history-tooltip p {
-      margin: 0;
-      line-height: 1.5;
-    }
-
-  @media screen and (max-width: 1080px) {
-    .history {
-      position: absolute;
-      left: 9.2vw;
-      flex-wrap: wrap;
-    }
-    .history-items {
-      width: 100%;
-      height: 100%;
-      max-width: 14vw;
-      max-height: 47vw;
-      flex-direction: column;
-    }
-    .history-item {
-      width: 6.9vw;
-      height: 6.9vw;
-      font-size: clamp(20px, 3.2vw, 35px);
-    }
-    .history-item:nth-child(7) {
-      margin-left: 0;
-      margin-top: 3.2vw;
-    }
-    .history-tooltip {
-      margin-top: 1.8vw;
-      margin-left: 0;
-    }
-  }
 </style>

@@ -11,7 +11,7 @@
     @dragover.prevent
     @dragenter.prevent
   >
-    <button v-if="this.buttonData.chips.length" class="chip">
+    <button v-if="this.maxChip" class="chip">
       <img :src="getImageUrlFromPrice()" alt="100" />
     </button>
   </div>
@@ -28,6 +28,7 @@ export default {
   },
   props: {
     buttonData: Object,
+    maxChip: Number,
   },
   methods: {
     enterCell() {
@@ -48,17 +49,10 @@ export default {
       this.$store.dispatch("dropDrag");
     },
     getImageUrlFromPrice() {
-      const placedChips = this.buttonData.chips;
-      if (!placedChips || !placedChips.length) return;
-
-      const maxPrice = Math.max.apply(
-        Math,
-        placedChips.map(function(c) {
-          return c.price;
-        })
+      const maxChipData = this.chips.find(
+        (chip) => chip.price === this.maxChip
       );
-      const maxChip = this.chips.find((chip) => chip.price === maxPrice);
-      return maxChip ? maxChip.src : null;
+      return maxChipData ? maxChipData.src : null;
     },
   },
   data() {

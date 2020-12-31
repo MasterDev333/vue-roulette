@@ -64,110 +64,263 @@
           </div>
         </div>
         <div class="controls">
-          <CellButton :buttonData="buttonData[0]" />
+          <CellButton :buttonData="buttonData[0]" :maxChip="getMaxChip(0)" />
           <div class="col1">
             <div class="row1">
-              <CellButton :buttonData="buttonData[1]" />
-              <CellButton :buttonData="buttonData[2]" />
+              <CellButton
+                :buttonData="buttonData[1]"
+                :maxChip="getMaxChip(1)"
+              />
+              <CellButton
+                :buttonData="buttonData[2]"
+                :maxChip="getMaxChip(2)"
+              />
             </div>
             <div class="row2">
-              <CellButton :buttonData="buttonData[3]" />
-              <CellButton :buttonData="buttonData[4]" />
-              <CellButton :buttonData="buttonData[5]" />
-              <CellButton :buttonData="buttonData[6]" />
+              <CellButton
+                :buttonData="buttonData[3]"
+                :maxChip="getMaxChip(3)"
+              />
+              <CellButton
+                :buttonData="buttonData[4]"
+                :maxChip="getMaxChip(4)"
+              />
+              <CellButton
+                :buttonData="buttonData[5]"
+                :maxChip="getMaxChip(5)"
+              />
+              <CellButton
+                :buttonData="buttonData[6]"
+                :maxChip="getMaxChip(6)"
+              />
             </div>
             <div class="row3">
-              <CellButton :buttonData="buttonData[7]" />
-              <CellButton :buttonData="buttonData[8]" />
-              <CellButton :buttonData="buttonData[9]" />
-              <CellButton :buttonData="buttonData[10]" />
+              <CellButton
+                :buttonData="buttonData[7]"
+                :maxChip="getMaxChip(7)"
+              />
+              <CellButton
+                :buttonData="buttonData[8]"
+                :maxChip="getMaxChip(8)"
+              />
+              <CellButton
+                :buttonData="buttonData[9]"
+                :maxChip="getMaxChip(9)"
+              />
+              <CellButton
+                :buttonData="buttonData[10]"
+                :maxChip="getMaxChip(10)"
+              />
             </div>
             <div class="row4">
-              <CellButton :buttonData="buttonData[42]" />
+              <CellButton
+                :buttonData="buttonData[42]"
+                :maxChip="getMaxChip(42)"
+              />
             </div>
             <div class="row5">
-              <CellButton :buttonData="buttonData[45]" />
+              <CellButton
+                :buttonData="buttonData[45]"
+                :maxChip="getMaxChip(45)"
+              />
             </div>
           </div>
           <div class="col2">
             <div class="row1">
-              <CellButton :buttonData="buttonData[11]" />
-              <CellButton :buttonData="buttonData[12]" />
-              <CellButton :buttonData="buttonData[13]" />
+              <CellButton
+                :buttonData="buttonData[11]"
+                :maxChip="getMaxChip(11)"
+              />
+              <CellButton
+                :buttonData="buttonData[12]"
+                :maxChip="getMaxChip(12)"
+              />
+              <CellButton
+                :buttonData="buttonData[13]"
+                :maxChip="getMaxChip(13)"
+              />
             </div>
             <div class="row2">
-              <CellButton :buttonData="buttonData[14]" />
-              <CellButton :buttonData="buttonData[15]" />
-              <CellButton :buttonData="buttonData[16]" />
-              <CellButton :buttonData="buttonData[17]" />
+              <CellButton
+                :buttonData="buttonData[14]"
+                :maxChip="getMaxChip(14)"
+              />
+              <CellButton
+                :buttonData="buttonData[15]"
+                :maxChip="getMaxChip(15)"
+              />
+              <CellButton
+                :buttonData="buttonData[16]"
+                :maxChip="getMaxChip(16)"
+              />
+              <CellButton
+                :buttonData="buttonData[17]"
+                :maxChip="getMaxChip(17)"
+              />
             </div>
             <div class="row3">
-              <CellButton :buttonData="buttonData[18]" />
-              <CellButton :buttonData="buttonData[19]" />
-              <CellButton :buttonData="buttonData[20]" />
-              <CellButton :buttonData="buttonData[21]" />
+              <CellButton
+                :buttonData="buttonData[18]"
+                :maxChip="getMaxChip(18)"
+              />
+              <CellButton
+                :buttonData="buttonData[19]"
+                :maxChip="getMaxChip(19)"
+              />
+              <CellButton
+                :buttonData="buttonData[20]"
+                :maxChip="getMaxChip(20)"
+              />
+              <CellButton
+                :buttonData="buttonData[21]"
+                :maxChip="getMaxChip(21)"
+              />
             </div>
             <div class="row5">
-              <CellButton :buttonData="buttonData[46]" />
+              <CellButton
+                :buttonData="buttonData[46]"
+                :maxChip="getMaxChip(46)"
+              />
             </div>
           </div>
           <div class="col3">
             <div class="row1">
-              <CellButton :buttonData="buttonData[22]" />
-              <CellButton :buttonData="buttonData[23]" />
+              <CellButton
+                :buttonData="buttonData[22]"
+                :maxChip="getMaxChip(22)"
+              />
+              <CellButton
+                :buttonData="buttonData[23]"
+                :maxChip="getMaxChip(23)"
+              />
             </div>
             <div class="row2">
-              <CellButton :buttonData="buttonData[24]" />
-              <CellButton :buttonData="buttonData[25]" />
-              <CellButton :buttonData="buttonData[26]" />
-              <CellButton :buttonData="buttonData[27]" />
+              <CellButton
+                :buttonData="buttonData[24]"
+                :maxChip="getMaxChip(24)"
+              />
+              <CellButton
+                :buttonData="buttonData[25]"
+                :maxChip="getMaxChip(25)"
+              />
+              <CellButton
+                :buttonData="buttonData[26]"
+                :maxChip="getMaxChip(26)"
+              />
+              <CellButton
+                :buttonData="buttonData[27]"
+                :maxChip="getMaxChip(27)"
+              />
             </div>
             <div class="row3">
-              <CellButton :buttonData="buttonData[28]" />
-              <CellButton :buttonData="buttonData[29]" />
-              <CellButton :buttonData="buttonData[30]" />
-              <CellButton :buttonData="buttonData[31]" />
+              <CellButton
+                :buttonData="buttonData[28]"
+                :maxChip="getMaxChip(28)"
+              />
+              <CellButton
+                :buttonData="buttonData[29]"
+                :maxChip="getMaxChip(29)"
+              />
+              <CellButton
+                :buttonData="buttonData[30]"
+                :maxChip="getMaxChip(30)"
+              />
+              <CellButton
+                :buttonData="buttonData[31]"
+                :maxChip="getMaxChip(31)"
+              />
             </div>
             <div class="row4">
-              <CellButton :buttonData="buttonData[43]" />
+              <CellButton
+                :buttonData="buttonData[43]"
+                :maxChip="getMaxChip(43)"
+              />
             </div>
             <div class="row5">
-              <CellButton :buttonData="buttonData[47]" />
+              <CellButton
+                :buttonData="buttonData[47]"
+                :maxChip="getMaxChip(47)"
+              />
             </div>
           </div>
           <div class="col4">
             <div class="row1">
-              <CellButton :buttonData="buttonData[32]" />
-              <CellButton :buttonData="buttonData[33]" />
+              <CellButton
+                :buttonData="buttonData[32]"
+                :maxChip="getMaxChip(32)"
+              />
+              <CellButton
+                :buttonData="buttonData[33]"
+                :maxChip="getMaxChip(33)"
+              />
             </div>
             <div class="row2">
-              <CellButton :buttonData="buttonData[34]" />
-              <CellButton :buttonData="buttonData[35]" />
-              <CellButton :buttonData="buttonData[36]" />
-              <CellButton :buttonData="buttonData[37]" />
+              <CellButton
+                :buttonData="buttonData[34]"
+                :maxChip="getMaxChip(34)"
+              />
+              <CellButton
+                :buttonData="buttonData[35]"
+                :maxChip="getMaxChip(35)"
+              />
+              <CellButton
+                :buttonData="buttonData[36]"
+                :maxChip="getMaxChip(36)"
+              />
+              <CellButton
+                :buttonData="buttonData[37]"
+                :maxChip="getMaxChip(37)"
+              />
             </div>
             <div class="row3">
-              <CellButton :buttonData="buttonData[38]" />
-              <CellButton :buttonData="buttonData[39]" />
-              <CellButton :buttonData="buttonData[40]" />
-              <CellButton :buttonData="buttonData[41]" />
+              <CellButton
+                :buttonData="buttonData[38]"
+                :maxChip="getMaxChip(38)"
+              />
+              <CellButton
+                :buttonData="buttonData[39]"
+                :maxChip="getMaxChip(39)"
+              />
+              <CellButton
+                :buttonData="buttonData[40]"
+                :maxChip="getMaxChip(40)"
+              />
+              <CellButton
+                :buttonData="buttonData[41]"
+                :maxChip="getMaxChip(41)"
+              />
             </div>
             <div class="row4">
-              <CellButton :buttonData="buttonData[44]" />
+              <CellButton
+                :buttonData="buttonData[44]"
+                :maxChip="getMaxChip(44)"
+              />
             </div>
             <div class="row5">
-              <CellButton :buttonData="buttonData[48]" />
+              <CellButton
+                :buttonData="buttonData[48]"
+                :maxChip="getMaxChip(48)"
+              />
             </div>
           </div>
           <div class="col5">
             <div class="row1">
-              <CellButton :buttonData="buttonData[49]" />
+              <CellButton
+                :buttonData="buttonData[49]"
+                :maxChip="getMaxChip(49)"
+              />
             </div>
             <div class="row2">
-              <CellButton :buttonData="buttonData[50]" />
+              <CellButton
+                :buttonData="buttonData[50]"
+                :maxChip="getMaxChip(50)"
+              />
             </div>
             <div class="row3">
-              <CellButton :buttonData="buttonData[51]" />
+              <CellButton
+                :buttonData="buttonData[51]"
+                :maxChip="getMaxChip(51)"
+              />
             </div>
           </div>
         </div>
@@ -192,66 +345,66 @@ export default {
     return {
       hoverNumbers: [], // current hovering cell
       buttonData: [
-        { id: 0, cells: [0], buttonType: "btn-zero", chips: [] },
-        { id: 1, cells: [0, 3], buttonType: "vertical", chips: [] },
-        { id: 2, cells: [3], buttonType: "self", chips: [] },
-        { id: 3, cells: [0, 2, 3], buttonType: "center", chips: [] },
-        { id: 4, cells: [0, 2], buttonType: "vertical", chips: [] },
-        { id: 5, cells: [2, 3], buttonType: "horizontal", chips: [] },
-        { id: 6, cells: [2], buttonType: "self", chips: [] },
-        { id: 7, cells: [0, 1, 2], buttonType: "center", chips: [] },
-        { id: 8, cells: [0, 1], buttonType: "vertical", chips: [] },
-        { id: 9, cells: [1, 2], buttonType: "horizontal", chips: [] },
-        { id: 10, cells: [1], buttonType: "self", chips: [] },
-        { id: 11, cells: [3, 6], buttonType: "center", chips: [] },
-        { id: 12, cells: [3, 6], buttonType: "vertical", chips: [] },
-        { id: 13, cells: [6], buttonType: "self", chips: [] },
-        { id: 14, cells: [2, 3, 5, 6], buttonType: "center", chips: [] },
-        { id: 15, cells: [2, 5], buttonType: "vertical", chips: [] },
-        { id: 16, cells: [5, 6], buttonType: "horizontal", chips: [] },
-        { id: 17, cells: [5], buttonType: "self", chips: [] },
-        { id: 18, cells: [1, 2, 4, 5], buttonType: "center", chips: [] },
-        { id: 19, cells: [1, 4], buttonType: "vertical", chips: [] },
-        { id: 20, cells: [4, 5], buttonType: "horizontal", chips: [] },
-        { id: 21, cells: [4], buttonType: "self", chips: [] },
-        { id: 22, cells: [6, 9], buttonType: "vertical", chips: [] },
-        { id: 23, cells: [9], buttonType: "self", chips: [] },
-        { id: 24, cells: [5, 6, 8, 9], buttonType: "center", chips: [] },
-        { id: 25, cells: [5, 8], buttonType: "vertical", chips: [] },
-        { id: 26, cells: [8, 9], buttonType: "horizontal", chips: [] },
-        { id: 27, cells: [8], buttonType: "self", chips: [] },
-        { id: 28, cells: [4, 5, 7, 8], buttonType: "center", chips: [] },
-        { id: 29, cells: [4, 7], buttonType: "vertical", chips: [] },
-        { id: 30, cells: [7, 8], buttonType: "horizontal", chips: [] },
-        { id: 31, cells: [7], buttonType: "self", chips: [] },
-        { id: 32, cells: [9, 11], buttonType: "vertical", chips: [] },
-        { id: 33, cells: [11], buttonType: "self", chips: [] },
-        { id: 34, cells: [8, 9, 11, 12], buttonType: "center", chips: [] },
-        { id: 35, cells: [8, 12], buttonType: "vertical", chips: [] },
-        { id: 36, cells: [11, 12], buttonType: "horizontal", chips: [] },
-        { id: 37, cells: [12], buttonType: "self", chips: [] },
-        { id: 38, cells: [7, 8, 10, 12], buttonType: "center", chips: [] },
-        { id: 39, cells: [7, 10], buttonType: "vertical", chips: [] },
-        { id: 40, cells: [10, 12], buttonType: "horizontal", chips: [] },
-        { id: 41, cells: [10], buttonType: "self", chips: [] },
+        { id: 0, cells: [0], buttonType: "btn-zero" },
+        { id: 1, cells: [0, 3], buttonType: "vertical" },
+        { id: 2, cells: [3], buttonType: "self" },
+        { id: 3, cells: [0, 2, 3], buttonType: "center" },
+        { id: 4, cells: [0, 2], buttonType: "vertical" },
+        { id: 5, cells: [2, 3], buttonType: "horizontal" },
+        { id: 6, cells: [2], buttonType: "self" },
+        { id: 7, cells: [0, 1, 2], buttonType: "center" },
+        { id: 8, cells: [0, 1], buttonType: "vertical" },
+        { id: 9, cells: [1, 2], buttonType: "horizontal" },
+        { id: 10, cells: [1], buttonType: "self" },
+        { id: 11, cells: [3, 6], buttonType: "center" },
+        { id: 12, cells: [3, 6], buttonType: "vertical" },
+        { id: 13, cells: [6], buttonType: "self" },
+        { id: 14, cells: [2, 3, 5, 6], buttonType: "center" },
+        { id: 15, cells: [2, 5], buttonType: "vertical" },
+        { id: 16, cells: [5, 6], buttonType: "horizontal" },
+        { id: 17, cells: [5], buttonType: "self" },
+        { id: 18, cells: [1, 2, 4, 5], buttonType: "center" },
+        { id: 19, cells: [1, 4], buttonType: "vertical" },
+        { id: 20, cells: [4, 5], buttonType: "horizontal" },
+        { id: 21, cells: [4], buttonType: "self" },
+        { id: 22, cells: [6, 9], buttonType: "vertical" },
+        { id: 23, cells: [9], buttonType: "self" },
+        { id: 24, cells: [5, 6, 8, 9], buttonType: "center" },
+        { id: 25, cells: [5, 8], buttonType: "vertical" },
+        { id: 26, cells: [8, 9], buttonType: "horizontal" },
+        { id: 27, cells: [8], buttonType: "self" },
+        { id: 28, cells: [4, 5, 7, 8], buttonType: "center" },
+        { id: 29, cells: [4, 7], buttonType: "vertical" },
+        { id: 30, cells: [7, 8], buttonType: "horizontal" },
+        { id: 31, cells: [7], buttonType: "self" },
+        { id: 32, cells: [9, 11], buttonType: "vertical" },
+        { id: 33, cells: [11], buttonType: "self" },
+        { id: 34, cells: [8, 9, 11, 12], buttonType: "center" },
+        { id: 35, cells: [8, 12], buttonType: "vertical" },
+        { id: 36, cells: [11, 12], buttonType: "horizontal" },
+        { id: 37, cells: [12], buttonType: "self" },
+        { id: 38, cells: [7, 8, 10, 12], buttonType: "center" },
+        { id: 39, cells: [7, 10], buttonType: "vertical" },
+        { id: 40, cells: [10, 12], buttonType: "horizontal" },
+        { id: 41, cells: [10], buttonType: "self" },
         // bottom sectors
-        { id: 42, cells: [1, 2, 3, 4, 5, 6], buttonType: "self", chips: [] },
-        { id: 43, cells: [4, 5, 6, 7, 8, 9], buttonType: "self", chips: [] },
-        { id: 44, cells: [7, 8, 9, 10, 11, 12], buttonType: "self", chips: [] },
-        { id: 45, cells: [2, 4, 6, 8, 10, 12], buttonType: "self", chips: [] },
-        { id: 46, cells: [1, 3, 5, 7, 9, 12], buttonType: "self", chips: [] },
-        { id: 47, cells: [2, 4, 6, 8, 10, 11], buttonType: "self", chips: [] },
-        { id: 48, cells: [1, 3, 5, 7, 9, 11], buttonType: "self", chips: [] },
+        { id: 42, cells: [1, 2, 3, 4, 5, 6], buttonType: "self" },
+        { id: 43, cells: [4, 5, 6, 7, 8, 9], buttonType: "self" },
+        { id: 44, cells: [7, 8, 9, 10, 11, 12], buttonType: "self" },
+        { id: 45, cells: [2, 4, 6, 8, 10, 12], buttonType: "self" },
+        { id: 46, cells: [1, 3, 5, 7, 9, 12], buttonType: "self" },
+        { id: 47, cells: [2, 4, 6, 8, 10, 11], buttonType: "self" },
+        { id: 48, cells: [1, 3, 5, 7, 9, 11], buttonType: "self" },
 
         // right sectors
-        { id: 49, cells: [3, 6, 9, 11], buttonType: "self", chips: [] },
-        { id: 50, cells: [2, 5, 8, 12], buttonType: "self", chips: [] },
-        { id: 51, cells: [1, 4, 7, 10], buttonType: "self", chips: [] },
+        { id: 49, cells: [3, 6, 9, 11], buttonType: "self" },
+        { id: 50, cells: [2, 5, 8, 12], buttonType: "self" },
+        { id: 51, cells: [1, 4, 7, 10], buttonType: "self" },
       ], // chips for id: 0, cells
     };
   },
   computed: {
-    ...mapState(["drag"]),
+    ...mapState(["drag", "placedChips"]),
   },
   methods: {
     enterCell: function(numbers) {
@@ -261,13 +414,10 @@ export default {
       this.hoverNumbers = [];
     },
     clickCell: function(id, price) {
-      const clickedCell = this.buttonData.find((e) => e.id === id);
-      const existingChip = clickedCell.chips.find(
-        (chip) => chip.price === price
-      );
-      if (existingChip) existingChip.quantity += 1;
-      else
-        clickedCell.chips = clickedCell.chips.concat([{ price, quantity: 1 }]);
+      this.$store.dispatch("placeChip", {
+        place: id,
+        price,
+      });
     },
     classBindHovering: function(number) {
       return {
@@ -278,6 +428,14 @@ export default {
       return (
         this.drag && this.hoverNumbers && this.hoverNumbers.includes(number)
       );
+    },
+    getMaxChip: function(placeToSearch) {
+      let max = 0;
+      this.placedChips.forEach((chipData) => {
+        const { place, price } = chipData;
+        if (place === placeToSearch && max < price) max = price;
+      });
+      return max;
     },
   },
 };
@@ -377,6 +535,7 @@ export default {
     border: 2px solid white;
     border-radius: 10px;
     overflow: hidden;
+    margin-top: 4vw;
     .num,
     .sector {
       display: flex;
@@ -445,6 +604,9 @@ export default {
   }
   .betting-table__portrait {
     display: block;
+  }
+  .numbers {
+    margin-top: 0;
   }
 }
 </style>

@@ -57,7 +57,9 @@ img {
   justify-content: center;
 }
 .game-left {
-  max-width: 35vw;
+  max-width: 40vw;
+  height: 40vw;
+  padding-right: 5vw;
 }
 .game-center {
   max-width: 35vw;
@@ -69,11 +71,8 @@ img {
 
 /* Responsive styles */
 @media only screen and (max-width: 1440px) {
-  .game-left {
-    max-width: 40vw;
-  }
   .game-center {
-    max-width: 40vw;
+    max-width: 35vw;
   }
 }
 @media only screen and (max-width: 1080px) {
@@ -82,14 +81,17 @@ img {
     align-items: center;
     flex-direction: column;
   }
+  .game-left {
+    max-width: 40vw;
+    // padding-right: 5vw;
+  }
   .game-center {
     max-width: 48vw;
   }
   .game-right {
     position: absolute;
-    top: 42vw;
+    top: 43vw;
     right: 9vw;
-    max-width: 9.2vw;
   }
 }
 
