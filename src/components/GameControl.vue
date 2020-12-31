@@ -70,20 +70,31 @@
         />
         <span class="control-button__text">RIPUNTA</span>
       </button>
-      <button
-        class="btn control-button"
-        :class="{
-          disabled: this.isAvailableTurn(),
-        }"
-        @click="autoStart"
-      >
-        <img
-          class="control-button__img"
-          src="../assets/images/btn_auto_start.png"
-          alt=""
-        />
-        <span class="control-button__text">AUTOSTART</span>
-      </button>
+      <div class="dropdown-btn" @click="openDropdownMenu">
+        <button
+          class="btn control-button"
+          :class="{
+            disabled: this.isAvailableTurn(),
+          }"
+        >
+          <img
+            class="control-button__img"
+            src="../assets/images/btn_auto_start.png"
+            alt=""
+          />
+          <span class="control-button__text">AUTOSTART</span>
+        </button>
+        <div
+          id="myDropdown"
+          class="dropdown-content"
+          :class="{ show: showDropdown }"
+        >
+          <a @click="autoStart(5)">5</a>
+          <a @click="autoStart(10)">10</a>
+          <a @click="autoStart(20)">20</a>
+          <a @click="autoStart(50)">50</a>
+        </div>
+      </div>
       <button
         class="btn control-button btn-turn btn-landscape"
         :class="{
@@ -123,6 +134,11 @@ import { mapGetters, mapState } from "vuex";
 
 export default {
   name: "GameControl",
+  data() {
+    return {
+      showDropdown: false,
+    };
+  },
   computed: {
     ...mapState(["is_turning", "mode"]),
     ...mapGetters(["stakeTotal"]),
@@ -140,8 +156,12 @@ export default {
     doubleChip() {
       this.$store.dispatch("doubleChip");
     },
-    autoStart() {
-      this.$store.dispatch("setMode", { mode: "autoStart-start" });
+    autoStart(count) {
+      this.$store.dispatch("setMode", { mode: "autoStart-start", count });
+      this.showDropdown = false;
+    },
+    openDropdownMenu() {
+      if (!this.isAvailableTurn()) this.showDropdown = !this.showDropdown;
     },
 
     isAvailableTurn() {
@@ -174,6 +194,48 @@ export default {
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    .dropdown-btn {
+      position: relative;
+      button.btn {
+        position: relative;
+        max-width: 100%;
+        z-index: 12;
+      }
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        bottom: calc(100% - 25px); /* added this attribute */
+        left: calc(50% - 2vw);
+        background-color: #114706;
+        border: 3px solid #e6d593;
+        border-radius: 50px 50px 0px 0px;
+        color: white;
+        width: 4vw;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 10;
+      }
+      .dropdown-content.show {
+        display: block;
+      }
+
+      .dropdown-content a {
+        color: white;
+        text-decoration: none;
+        display: block;
+        width: 2.5vw;
+        margin: auto;
+        border-bottom: 1px solid;
+        margin: 20px auto 10px;
+        padding-bottom: 5px;
+        font-weight: bold;
+        z-index: 10;
+      }
+      .dropdown-content a:last-child {
+        border-bottom: none;
+        padding-bottom: 25px;
+      }
+    }
   }
   .control-button {
     display: flex;
@@ -262,6 +324,24 @@ export default {
       align-items: center;
       justify-content: center;
       gap: 1vw;
+    }
+    .dropdown-btn {
+      .dropdown-content {
+        bottom: calc(100% - 25px); /* added this attribute */
+        left: calc(50% - clamp(50px, 7vw, 70px) / 2);
+        width: clamp(50px, 7vw, 70px);
+      }
+      .dropdown-content a {
+        width: 30px;
+        margin: auto;
+        border-bottom: 1px solid;
+        margin: 20px auto 10px;
+        padding-bottom: 5px;
+      }
+      .dropdown-content a:last-child {
+        border-bottom: none;
+        padding-bottom: 25px;
+      }
     }
     .control-button {
       &__img {

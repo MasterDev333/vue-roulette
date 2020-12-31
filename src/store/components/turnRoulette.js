@@ -41,7 +41,7 @@ export const stopRoulette = ({ commit, state }) => {
   }
 };
 
-export const setMode = (context, { mode }) => {
+export const setMode = (context, { mode, count }) => {
   context.commit("SET_MODE", mode);
   if (mode === "autoStart-start") {
     context.commit("TURN_ROULETTE");
@@ -51,7 +51,7 @@ export const setMode = (context, { mode }) => {
     setTimeout(() => {
       clearInterval(intervalId);
       context.commit("SET_MODE", "autoStart-end-ready");
-    }, 11000);
+    }, 3500 * (count - 1) + 500);
   }
   if (mode === "normalSpin-start") {
     context.commit("TURN_ROULETTE");
