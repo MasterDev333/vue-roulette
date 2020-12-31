@@ -85,6 +85,7 @@ export default {
   border-radius: 20px;
   height: 28vw;
   align-items: center;
+  padding-top: 15px;
   .history-title {
     color: white;
   }
@@ -93,7 +94,7 @@ export default {
     flex-direction: row;
     align-items: center;
     height: 100%;
-    margin-top: 1vw;
+    margin-top: clamp(12px, 1vw, 40px);
     .history-items {
       display: flex;
       flex-direction: column;

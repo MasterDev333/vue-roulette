@@ -55,7 +55,7 @@ export default new Vuex.Store({
     stakeTotal: (state) => {
       let total = 0;
       state.placedChips.forEach(({ price }) => (total += price));
-      return total;
+      return total ? total.toFixed(2) : 0;
     },
   },
 });
