@@ -61,7 +61,7 @@ export default {
   watch: {
     finished_num(newValue) {
       if (newValue == this.num_count - 1) {
-        alert("finished");
+        console.log("finished");
         this.$store.dispatch("finishedRound");
       }
     },
