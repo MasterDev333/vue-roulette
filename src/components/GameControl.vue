@@ -258,7 +258,7 @@ export default {
       display: block;
       margin-top: 10px;
       color: white;
-      font-size: clamp(12px, 1.3vw, 20px);
+      font-size: clamp(12px, 1.1vw, 20px);
       width: 6vw;
     }
   }
