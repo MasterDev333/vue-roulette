@@ -7,10 +7,12 @@
       <div class="history-items">
         <div
           class="history-item"
-          v-for="(history, index) in historyArr.slice(
-            Math.max(0, historyArr.length - 12),
-            Math.max(6, historyArr.length - 6)
-          )"
+          v-for="(history, index) in historyArr
+            .slice(
+              Math.max(0, historyArr.length - 12),
+              Math.max(12, historyArr.length)
+            )
+            .filter((h, i) => !(i % 2))"
           :key="index"
         >
           <span
@@ -23,10 +25,12 @@
       <div class="history-items">
         <div
           class="history-item"
-          v-for="(history, index) in historyArr.slice(
-            Math.max(6, historyArr.length - 6),
-            Math.max(12, historyArr.length)
-          )"
+          v-for="(history, index) in historyArr
+            .slice(
+              Math.max(0, historyArr.length - 12),
+              Math.max(12, historyArr.length)
+            )
+            .filter((h, i) => i % 2)"
           :key="index"
         >
           <span

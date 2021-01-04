@@ -79,7 +79,7 @@ export default {
     gap: 0.5vw;
     width: 100%;
     .hover-number {
-      box-shadow: 0px 0px 4px 4px yellow;
+      box-shadow: 0px 0px 4px 3px #f9d53e;
       border-radius: 100%;
     }
   }
