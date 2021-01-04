@@ -98,6 +98,7 @@ img {
 @keyframes orbit2 {
   0% {
     transform: rotate(0deg) translateX(-15.6vw) translateY(10px);
+    opacity: 1;
   }
   40% {
     transform: rotate(400deg) translateX(-11.97vw) translateY(10px);
@@ -110,6 +111,7 @@ img {
   }
   100% {
     transform: rotate(720deg) translateX(-9.13vw) translateY(5px);
+    opacity: 1;
   }
 }
 
@@ -117,6 +119,7 @@ img {
   @keyframes orbit2 {
     0% {
       transform: rotate(0deg) translateX(-17vw) translateY(5px);
+      opacity: 1;
     }
     40% {
       transform: rotate(360deg) translateX(-13vw);
@@ -129,6 +132,7 @@ img {
     }
     100% {
       transform: rotate(720deg) translateX(-9vw) translateY(5px);
+      opacity: 1;
     }
   }
 }

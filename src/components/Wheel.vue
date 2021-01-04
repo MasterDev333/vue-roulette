@@ -28,7 +28,13 @@
         />
       </div>
     </div>
-    <img src="../assets/images/ball.png" class="ball" ref="ball" alt="" />
+    <img
+      src="../assets/images/ball.png"
+      style="opacity: 0"
+      class="ball"
+      ref="ball"
+      alt=""
+    />
   </div>
 </template>
 
