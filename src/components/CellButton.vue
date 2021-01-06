@@ -11,8 +11,18 @@
     @dragover.prevent
     @dragenter.prevent
   >
-    <button v-if="this.maxChip" class="chip">
-      <img :src="getImageUrlFromPrice()" alt="100" />
+    <button
+      v-if="this.latestChip && this.latestChip.price"
+      v-bind:style="{ maxWidth: maxWidth }"
+      v-bind:class="{ 'img-transition': maxWidth }"
+      class="chip"
+    >
+      <img
+        :src="getImageUrlFromPrice()"
+        class="img-transition"
+        v-bind:style="{ maxWidth: maxWidth }"
+        alt="100"
+      />
     </button>
   </div>
 </template>
@@ -26,9 +36,23 @@ export default {
   computed: {
     ...mapState(["drag", "dragPrice"]),
   },
+  watch: {
+    latestChip: {
+      // the callback will be called immediately after the start of the observation
+      immediate: true,
+      handler(val, oldval) {
+        if (
+          !oldval ||
+          val.isLastPlaced !== oldval.isLastPlaced ||
+          val.price !== oldval.price
+        )
+          this.getMaxWidth();
+      },
+    },
+  },
   props: {
     buttonData: Object,
-    maxChip: Number,
+    latestChip: Object,
   },
   methods: {
     enterCell() {
@@ -49,15 +73,24 @@ export default {
       this.$store.dispatch("dropDrag");
     },
     getImageUrlFromPrice() {
-      const maxChipData = this.chips.find(
-        (chip) => chip.price === this.maxChip
+      const latestChip = this.chips.find(
+        (chip) => chip.price === this.latestChip.price
       );
-      return maxChipData ? maxChipData.src : null;
+      return latestChip ? latestChip.src : null;
+    },
+    getMaxWidth() {
+      if (this.latestChip.isLastPlaced) {
+        this.maxWidth = true;
+        setTimeout(() => {
+          this.maxWidth = false;
+        }, 50);
+      }
     },
   },
   data() {
     return {
       chips: chips,
+      maxWidth: false,
     };
   },
 };
@@ -92,8 +125,18 @@ export default {
 }
 .chip {
   padding: 0.2vw 0 0 0.2vw;
+  transition: 1s all ease-in-out;
   img {
     max-width: 3vw;
+    transition: 1s all ease-in-out;
+  }
+}
+.img-transition {
+  max-width: 5vw;
+  transition: none;
+  img {
+    transition: none;
+    max-width: 5vw;
   }
 }
 </style>

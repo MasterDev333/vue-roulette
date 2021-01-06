@@ -64,64 +64,67 @@
           </div>
         </div>
         <div class="controls">
-          <CellButton :buttonData="buttonData[0]" :maxChip="getMaxChip(0)" />
+          <CellButton
+            :buttonData="buttonData[0]"
+            :latestChip="getLatestChip(0)"
+          />
           <div class="col1">
             <div class="row1">
               <CellButton
                 :buttonData="buttonData[1]"
-                :maxChip="getMaxChip(1)"
+                :latestChip="getLatestChip(1)"
               />
               <CellButton
                 :buttonData="buttonData[2]"
-                :maxChip="getMaxChip(2)"
+                :latestChip="getLatestChip(2)"
               />
             </div>
             <div class="row2">
               <CellButton
                 :buttonData="buttonData[3]"
-                :maxChip="getMaxChip(3)"
+                :latestChip="getLatestChip(3)"
               />
               <CellButton
                 :buttonData="buttonData[4]"
-                :maxChip="getMaxChip(4)"
+                :latestChip="getLatestChip(4)"
               />
               <CellButton
                 :buttonData="buttonData[5]"
-                :maxChip="getMaxChip(5)"
+                :latestChip="getLatestChip(5)"
               />
               <CellButton
                 :buttonData="buttonData[6]"
-                :maxChip="getMaxChip(6)"
+                :latestChip="getLatestChip(6)"
               />
             </div>
             <div class="row3">
               <CellButton
                 :buttonData="buttonData[7]"
-                :maxChip="getMaxChip(7)"
+                :latestChip="getLatestChip(7)"
               />
               <CellButton
                 :buttonData="buttonData[8]"
-                :maxChip="getMaxChip(8)"
+                :latestChip="getLatestChip(8)"
               />
               <CellButton
                 :buttonData="buttonData[9]"
-                :maxChip="getMaxChip(9)"
+                :latestChip="getLatestChip(9)"
               />
               <CellButton
                 :buttonData="buttonData[10]"
-                :maxChip="getMaxChip(10)"
+                :latestChip="getLatestChip(10)"
               />
             </div>
             <div class="row4">
               <CellButton
                 :buttonData="buttonData[42]"
-                :maxChip="getMaxChip(42)"
+                :latestChip="getLatestChip(42)"
               />
             </div>
             <div class="row5">
               <CellButton
                 :buttonData="buttonData[45]"
-                :maxChip="getMaxChip(45)"
+                :latestChip="getLatestChip(45)"
               />
             </div>
           </div>
@@ -129,57 +132,57 @@
             <div class="row1">
               <CellButton
                 :buttonData="buttonData[11]"
-                :maxChip="getMaxChip(11)"
+                :latestChip="getLatestChip(11)"
               />
               <CellButton
                 :buttonData="buttonData[12]"
-                :maxChip="getMaxChip(12)"
+                :latestChip="getLatestChip(12)"
               />
               <CellButton
                 :buttonData="buttonData[13]"
-                :maxChip="getMaxChip(13)"
+                :latestChip="getLatestChip(13)"
               />
             </div>
             <div class="row2">
               <CellButton
                 :buttonData="buttonData[14]"
-                :maxChip="getMaxChip(14)"
+                :latestChip="getLatestChip(14)"
               />
               <CellButton
                 :buttonData="buttonData[15]"
-                :maxChip="getMaxChip(15)"
+                :latestChip="getLatestChip(15)"
               />
               <CellButton
                 :buttonData="buttonData[16]"
-                :maxChip="getMaxChip(16)"
+                :latestChip="getLatestChip(16)"
               />
               <CellButton
                 :buttonData="buttonData[17]"
-                :maxChip="getMaxChip(17)"
+                :latestChip="getLatestChip(17)"
               />
             </div>
             <div class="row3">
               <CellButton
                 :buttonData="buttonData[18]"
-                :maxChip="getMaxChip(18)"
+                :latestChip="getLatestChip(18)"
               />
               <CellButton
                 :buttonData="buttonData[19]"
-                :maxChip="getMaxChip(19)"
+                :latestChip="getLatestChip(19)"
               />
               <CellButton
                 :buttonData="buttonData[20]"
-                :maxChip="getMaxChip(20)"
+                :latestChip="getLatestChip(20)"
               />
               <CellButton
                 :buttonData="buttonData[21]"
-                :maxChip="getMaxChip(21)"
+                :latestChip="getLatestChip(21)"
               />
             </div>
             <div class="row5">
               <CellButton
                 :buttonData="buttonData[46]"
-                :maxChip="getMaxChip(46)"
+                :latestChip="getLatestChip(46)"
               />
             </div>
           </div>
@@ -187,59 +190,59 @@
             <div class="row1">
               <CellButton
                 :buttonData="buttonData[22]"
-                :maxChip="getMaxChip(22)"
+                :latestChip="getLatestChip(22)"
               />
               <CellButton
                 :buttonData="buttonData[23]"
-                :maxChip="getMaxChip(23)"
+                :latestChip="getLatestChip(23)"
               />
             </div>
             <div class="row2">
               <CellButton
                 :buttonData="buttonData[24]"
-                :maxChip="getMaxChip(24)"
+                :latestChip="getLatestChip(24)"
               />
               <CellButton
                 :buttonData="buttonData[25]"
-                :maxChip="getMaxChip(25)"
+                :latestChip="getLatestChip(25)"
               />
               <CellButton
                 :buttonData="buttonData[26]"
-                :maxChip="getMaxChip(26)"
+                :latestChip="getLatestChip(26)"
               />
               <CellButton
                 :buttonData="buttonData[27]"
-                :maxChip="getMaxChip(27)"
+                :latestChip="getLatestChip(27)"
               />
             </div>
             <div class="row3">
               <CellButton
                 :buttonData="buttonData[28]"
-                :maxChip="getMaxChip(28)"
+                :latestChip="getLatestChip(28)"
               />
               <CellButton
                 :buttonData="buttonData[29]"
-                :maxChip="getMaxChip(29)"
+                :latestChip="getLatestChip(29)"
               />
               <CellButton
                 :buttonData="buttonData[30]"
-                :maxChip="getMaxChip(30)"
+                :latestChip="getLatestChip(30)"
               />
               <CellButton
                 :buttonData="buttonData[31]"
-                :maxChip="getMaxChip(31)"
+                :latestChip="getLatestChip(31)"
               />
             </div>
             <div class="row4">
               <CellButton
                 :buttonData="buttonData[43]"
-                :maxChip="getMaxChip(43)"
+                :latestChip="getLatestChip(43)"
               />
             </div>
             <div class="row5">
               <CellButton
                 :buttonData="buttonData[47]"
-                :maxChip="getMaxChip(47)"
+                :latestChip="getLatestChip(47)"
               />
             </div>
           </div>
@@ -247,59 +250,59 @@
             <div class="row1">
               <CellButton
                 :buttonData="buttonData[32]"
-                :maxChip="getMaxChip(32)"
+                :latestChip="getLatestChip(32)"
               />
               <CellButton
                 :buttonData="buttonData[33]"
-                :maxChip="getMaxChip(33)"
+                :latestChip="getLatestChip(33)"
               />
             </div>
             <div class="row2">
               <CellButton
                 :buttonData="buttonData[34]"
-                :maxChip="getMaxChip(34)"
+                :latestChip="getLatestChip(34)"
               />
               <CellButton
                 :buttonData="buttonData[35]"
-                :maxChip="getMaxChip(35)"
+                :latestChip="getLatestChip(35)"
               />
               <CellButton
                 :buttonData="buttonData[36]"
-                :maxChip="getMaxChip(36)"
+                :latestChip="getLatestChip(36)"
               />
               <CellButton
                 :buttonData="buttonData[37]"
-                :maxChip="getMaxChip(37)"
+                :latestChip="getLatestChip(37)"
               />
             </div>
             <div class="row3">
               <CellButton
                 :buttonData="buttonData[38]"
-                :maxChip="getMaxChip(38)"
+                :latestChip="getLatestChip(38)"
               />
               <CellButton
                 :buttonData="buttonData[39]"
-                :maxChip="getMaxChip(39)"
+                :latestChip="getLatestChip(39)"
               />
               <CellButton
                 :buttonData="buttonData[40]"
-                :maxChip="getMaxChip(40)"
+                :latestChip="getLatestChip(40)"
               />
               <CellButton
                 :buttonData="buttonData[41]"
-                :maxChip="getMaxChip(41)"
+                :latestChip="getLatestChip(41)"
               />
             </div>
             <div class="row4">
               <CellButton
                 :buttonData="buttonData[44]"
-                :maxChip="getMaxChip(44)"
+                :latestChip="getLatestChip(44)"
               />
             </div>
             <div class="row5">
               <CellButton
                 :buttonData="buttonData[48]"
-                :maxChip="getMaxChip(48)"
+                :latestChip="getLatestChip(48)"
               />
             </div>
           </div>
@@ -307,19 +310,19 @@
             <div class="row1">
               <CellButton
                 :buttonData="buttonData[49]"
-                :maxChip="getMaxChip(49)"
+                :latestChip="getLatestChip(49)"
               />
             </div>
             <div class="row2">
               <CellButton
                 :buttonData="buttonData[50]"
-                :maxChip="getMaxChip(50)"
+                :latestChip="getLatestChip(50)"
               />
             </div>
             <div class="row3">
               <CellButton
                 :buttonData="buttonData[51]"
-                :maxChip="getMaxChip(51)"
+                :latestChip="getLatestChip(51)"
               />
             </div>
           </div>
@@ -429,13 +432,17 @@ export default {
         this.drag && this.hoverNumbers && this.hoverNumbers.includes(number)
       );
     },
-    getMaxChip: function(placeToSearch) {
-      let max = 0;
-      this.placedChips.forEach((chipData) => {
-        const { place, price } = chipData;
-        if (place === placeToSearch && max < price) max = price;
-      });
-      return max;
+    getLatestChip: function(placeToSearch) {
+      const chips = this.placedChips.filter(
+        (chipData) => chipData.place === placeToSearch
+      );
+      const isLastPlaced =
+        this.placedChips[this.placedChips.length - 1] &&
+        this.placedChips[this.placedChips.length - 1].place === placeToSearch;
+      return {
+        price: chips && chips.length ? chips[chips.length - 1].price : null,
+        isLastPlaced,
+      };
     },
   },
 };
