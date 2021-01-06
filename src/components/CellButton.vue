@@ -83,7 +83,7 @@ export default {
         this.maxWidth = true;
         setTimeout(() => {
           this.maxWidth = false;
-        }, 50);
+        }, 10);
       }
     },
   },
@@ -125,10 +125,10 @@ export default {
 }
 .chip {
   padding: 0.2vw 0 0 0.2vw;
-  transition: 1s all ease-in-out;
+  transition: 0.1s all cubic-bezier(0.6, -0.28, 0.74, 0.05);
   img {
     max-width: 3vw;
-    transition: 1s all ease-in-out;
+    transition: 0.1s all cubic-bezier(0.6, -0.28, 0.74, 0.05);
   }
 }
 .img-transition {
