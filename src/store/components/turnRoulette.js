@@ -4,8 +4,7 @@ import { getRouletteResult } from "../helpers";
 export const TURN_ROULETTE = (state) => {
   state.is_turning = true;
   state.turning_deg =
-    getRandomInt(1, state.num_count) * (360 / state.num_count) +
-    getRandomInt(1, 3) * 360;
+    getRandomInt(1, state.num_count) * (360 / state.num_count) + 3 * 360;
 };
 
 export const turnRoulette = (context) => {
@@ -15,11 +14,11 @@ export const turnRoulette = (context) => {
 export const SET_MODE = (state, mode) => {
   state.mode = mode;
   if (mode === "autoStart-start") {
-    state.turning_duration = 3;
+    state.turning_duration = 5;
     state.delay = 2;
   }
   if (mode === "normalSpin-start") {
-    state.turning_duration = 3;
+    state.turning_duration = 5;
     state.delay = 2;
   }
 };

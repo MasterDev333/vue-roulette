@@ -54,9 +54,13 @@ export default {
     ]),
     rotateWheelStyle() {
       return {
-        transition: `transform ${this.turning_duration}s cubic-bezier(0.3, 1, 0.7, 1), 
-                     ${this.turning_duration}s filter cubic-bezier(0.1, 1, 0.8, 1), 
-                     ${this.turning_duration}s -webkit-filter cubic-bezier(0.1, 1, 0.8, 1)`,
+        transition: `transform ${this.turning_duration +
+          this.delay}s cubic-bezier(0.3, 1, 0.7, 1),
+                     ${this.turning_duration +
+                       this.delay}s filter cubic-bezier(0.1, 1, 0.8, 1),
+                     ${this.turning_duration +
+                       this
+                         .delay}s -webkit-filter cubic-bezier(0.1, 1, 0.8, 1)`,
         transform: "translate(-50%, -50%) rotate(" + this.turning_deg + "deg)",
       };
     },
@@ -65,29 +69,30 @@ export default {
         transform: "translate(-50%, -50%) rotate(0deg)",
       };
     },
-    rotateBallStyle() {
-      return {
-        animation: `${this.turning_duration}s linear forwards orbit2`,
-      };
-    },
+    // rotateBallStyle() {
+    //   return {
+    //     animation: `${this.turning_duration}s linear forwards orbit2`,
+    //   };
+    // },
   },
   watch: {
     is_turning(newValue) {
       if (newValue) {
         this.$refs.wheel_numbers.style.filter = "blur(1px)";
-        this.$refs.ball.style.animation = `${this.turning_duration}s linear forwards orbit2`;
+        this.$refs.ball.style.animation = `${this.turning_duration +
+          this.delay}s linear forwards orbit2`;
         // this.$refs.ball.addEventListener('animationend', function() {
         //   console.log(this.getBoundingClientRect());
         // });
         // when roulette stops
         setTimeout(() => {
           this.$refs.wheel_numbers.style.filter = "blur(0px)";
-        }, this.turning_duration * 1000);
+        }, (this.turning_duration + this.delay) * 1000);
         //
         setTimeout(() => {
           this.$store.dispatch("stopRoulette");
           this.$refs.ball.style.animation = "none";
-        }, (this.turning_duration + this.delay) * 1000);
+        }, (this.turning_duration + this.delay * 2) * 1000);
       }
     },
   },
@@ -140,6 +145,7 @@ export default {
   @include wheelComponents();
   width: clamp(15px, 1.77vw, 34px);
   height: clamp(15px, 1.77vw, 34px);
+  transform-origin: top left;
 }
 @media screen and (max-width: 1080px) {
   .wheel {

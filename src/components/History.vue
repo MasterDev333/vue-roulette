@@ -106,7 +106,7 @@ export default {
       height: 100%;
       place-content: space-between;
       align-items: center;
-      margin-top: 2vw;
+      margin-top: clamp(10px, 5vw, 30px);
       margin-bottom: 0;
       min-width: 20px;
     }
