@@ -5,7 +5,12 @@
         <img
           :src="chip.src"
           :alt="chip.alt"
-          v-bind:class="classBindHovering(chip.price)"
+          v-bind:class="[
+            classBindHovering(chip.price),
+            {
+              disabled: isAvailableTurn(),
+            },
+          ]"
           draggable
           @click="startDrag(chip.price)"
           @dragstart="startDrag(chip.price)"
@@ -33,7 +38,7 @@ import { chips } from "./Chips";
 export default {
   name: "ChipField",
   computed: {
-    ...mapState(["dragPrice"]),
+    ...mapState(["dragPrice", "is_turning", "mode"]),
   },
   props: {
     msg: String,
@@ -59,6 +64,13 @@ export default {
     },
     isHovering: function(price) {
       return this.dragPrice === price;
+    },
+    isAvailableTurn() {
+      return (
+        this.is_turning ||
+        this.mode === "autoStart-start" ||
+        this.mode === " normalSpin-start"
+      );
     },
   },
 };
@@ -101,6 +113,11 @@ export default {
     margin: 0;
     line-height: 1.5;
   }
+}
+.disabled {
+  filter: grayscale(1);
+  cursor: not-allowed;
+  pointer-events: none;
 }
 @media screen and (max-width: 1080px) {
   .history {
