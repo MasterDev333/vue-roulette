@@ -14,19 +14,19 @@
     <div class="summary-controls">
       <button
         v-if="this.audio_enabled"
-        class="btn btn-summary-control btn-mute"
+        class="btn btn-summary-control btn-volumn"
         :class="{ active: !audio_enabled }"
         @click="muteAudio"
       >
-        <img src="../assets/images/btn_mute.png" alt="mute" />
+        <img src="../assets/images/btn_volumn.png" alt="audio" />
       </button>
       <button
         v-if="!this.audio_enabled"
-        class="btn btn-summary-control btn-volumn"
+        class="btn btn-summary-control btn-mute"
         :class="{ active: audio_enabled }"
         @click="playAudio"
       >
-        <img src="../assets/images/btn_volumn.png" alt="audio" />
+        <img src="../assets/images/btn_mute.png" alt="mute" />
       </button>
       <button class="btn btn-summary-control btn-setting" @click="settings">
         <img src="../assets/images/btn_setup.png" alt="settings" />
