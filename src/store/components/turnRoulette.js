@@ -3,6 +3,8 @@ import { getRouletteResult } from "../helpers";
 
 export const TURN_ROULETTE = (state) => {
   state.is_turning = true;
+  state.drag = false;
+  state.dragPrice = 0;
   state.turning_deg =
     getRandomInt(1, state.num_count) * (360 / state.num_count) + 3 * 360;
 };
