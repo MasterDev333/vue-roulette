@@ -6,7 +6,8 @@ export const TURN_ROULETTE = (state) => {
   state.drag = false;
   state.dragPrice = 0;
   state.turning_deg =
-    getRandomInt(1, state.num_count) * (360 / state.num_count) + 3 * 360;
+    getRandomInt(1, state.num_count) * (360 / state.num_count) + 5 * 360;
+  // 1 * (360 / state.num_count) + 5 * 360;
 };
 
 export const turnRoulette = (context) => {
@@ -16,11 +17,11 @@ export const turnRoulette = (context) => {
 export const SET_MODE = (state, mode) => {
   state.mode = mode;
   if (mode === "autoStart-start") {
-    state.turning_duration = 5;
+    state.turning_duration = 10;
     state.delay = 2;
   }
   if (mode === "normalSpin-start") {
-    state.turning_duration = 5;
+    state.turning_duration = 10;
     state.delay = 2;
   }
 };
@@ -48,16 +49,16 @@ export const setMode = (context, { mode, count }) => {
     context.commit("TURN_ROULETTE");
     const intervalId = setInterval(() => {
       context.commit("TURN_ROULETTE");
-    }, 9500);
+    }, 14500);
     setTimeout(() => {
       clearInterval(intervalId);
       context.commit("SET_MODE", "autoStart-end-ready");
-    }, 9500 * (count - 1) + 500);
+    }, 14500 * (count - 1) + 500);
   }
   if (mode === "normalSpin-start") {
     context.commit("TURN_ROULETTE");
     setTimeout(() => {
       context.commit("SET_MODE", "normalSpin-end");
-    }, 5000);
+    }, 10000);
   }
 };

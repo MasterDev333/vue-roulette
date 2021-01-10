@@ -11,7 +11,7 @@ const state = {
   audio_enabled: false, // Enable audio
   audio_bg: new Audio(require("../assets/sounds/music-bitsnbites-liver.mp3")),
   is_turning: false, // Turning flag
-  turning_duration: 5, // Turning Duration
+  turning_duration: 10, // Turning Duration
   delay: 2, // turning Delay
   mode: "normalSpin", // normalSpin or autoStart
   turning_speed: 300, // Turning Speed
