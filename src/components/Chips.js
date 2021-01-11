@@ -1,9 +1,9 @@
 export const chips = [
-  {
-    src: require("../assets/images/0,01_chip.png"),
-    alt: "0,01",
-    price: 0.01,
-  },
+  // {
+  //   src: require("../assets/images/0,01_chip.png"),
+  //   alt: "0,01",
+  //   price: 0.01,
+  // },
   {
     src: require("../assets/images/0,1_chip.png"),
     alt: "0,1",

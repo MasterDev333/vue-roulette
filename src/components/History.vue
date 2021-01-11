@@ -126,6 +126,9 @@ export default {
       text-align: center;
       justify-content: center;
       height: 2.8vw;
+      span {
+        transform: scale(0.9, 1);
+      }
     }
   }
 }

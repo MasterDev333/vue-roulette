@@ -225,7 +225,7 @@ export default {
         display: block;
         width: 2.5vw;
         margin: auto;
-        border-bottom: 1px solid;
+        border-bottom: 1px solid #e6d593;
         margin: 20px auto 10px;
         padding-bottom: 5px;
         font-weight: bold;
@@ -334,7 +334,7 @@ export default {
       .dropdown-content a {
         width: 30px;
         margin: auto;
-        border-bottom: 1px solid;
+        border-bottom: 1px solid #e6d593;
         margin: 20px auto 10px;
         padding-bottom: 5px;
       }
