@@ -1,8 +1,8 @@
 export const PLAY_AUDIO = (state) => {
-  console.log("this.audio_enabled");
   state.audio_disabled = false;
   state.audio_enabled = true;
 
+  state.audio_bg.volume = 0.5;
   state.audio_bg.play();
 
   state.kickSound3.volume = 1.0;
