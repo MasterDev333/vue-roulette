@@ -597,9 +597,13 @@ export default {
       &.num-color {
         overflow: hidden;
         span {
-          width: 3vw;
-          height: 3vw;
-          transform: rotate(45deg);
+          // width: 3vw;
+          // height: 3vw;
+          // transform: rotate(45deg);
+          height: 100%;
+          -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+          clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+          width: 100%;
         }
       }
     }
