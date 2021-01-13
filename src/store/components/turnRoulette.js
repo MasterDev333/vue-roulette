@@ -8,17 +8,11 @@ export const TURN_ROULETTE = (state) => {
   state.turning_deg =
     getRandomInt(1, state.num_count) * (360 / state.num_count) + 5 * 360;
   // 1 * (360 / state.num_count) + 5 * 360;
-    state.kickSound3.currentTime = 2;
-    state.kickSound3.play();
-    setTimeout(() => {
-      state.kickSound3.pause();
-    }, state.turning_duration * 1000);
-
-
-    setTimeout(() => {
-      state.kickSound2.currentTime = 0;
-      state.kickSound2.play();
-    }, 3 * 1000);
+  state.kickSound3.currentTime = 2;
+  state.kickSound3.play();
+  setTimeout(() => {
+    state.kickSound3.pause();
+  }, state.turning_duration * 1000);
 };
 
 export const turnRoulette = (context) => {
