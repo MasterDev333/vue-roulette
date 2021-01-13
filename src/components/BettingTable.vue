@@ -15,8 +15,8 @@
           <div class="num red" v-bind:class="classBindHovering(9)">
             <span>9</span>
           </div>
-          <div class="num black" v-bind:class="classBindHovering(11)">
-            <span>11</span>
+          <div class="num black" v-bind:class="classBindHovering(12)">
+            <span>12</span>
           </div>
           <div class="sector" data-sector="1"><span class="vt">2:1</span></div>
           <div class="num black" v-bind:class="classBindHovering(2)">
@@ -28,8 +28,8 @@
           <div class="num black" v-bind:class="classBindHovering(8)">
             <span>8</span>
           </div>
-          <div class="num red" v-bind:class="classBindHovering(12)">
-            <span>12</span>
+          <div class="num red" v-bind:class="classBindHovering(11)">
+            <span>11</span>
           </div>
           <div class="sector" data-sector="2"><span class="vt">2:1</span></div>
           <div class="num red" v-bind:class="classBindHovering(1)">

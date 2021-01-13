@@ -11,7 +11,9 @@ const state = {
   audio_enabled: false, // Enable audio
   audio_bg: new Audio(require("../assets/sounds/music-bitsnbites-liver.mp3")),
   kickSound1: new Audio(require("../assets/sounds/CasinoChips PE1097101.mp3")),
-  kickSound2: new Audio(require("../assets/sounds/CasinoChips SE040304.mp3")),
+  kickSound2: new Audio(
+    require("../assets/sounds/CasinoChips SE040304-v1.mp3")
+  ),
   kickSound3: new Audio(
     require("../assets/sounds/RouletteWheelSpinn PE147501.mp3")
   ),
@@ -42,7 +44,7 @@ const state = {
   dragPrice: 0, // Dragging Chip Price
 };
 
-state.kickSound1.volume = 0
-state.kickSound2.volume = 0
-state.kickSound3.volume = 0
+state.kickSound1.volume = 0;
+state.kickSound2.volume = 0;
+state.kickSound3.volume = 0;
 export default state;

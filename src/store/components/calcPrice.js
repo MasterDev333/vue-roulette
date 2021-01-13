@@ -1,6 +1,14 @@
 export const PLACE_CHIP = (state, { place, price }) => {
-  state.kickSound1.currentTime = 0;
-  state.kickSound1.play();
+  if (
+    state.placedChips &&
+    state.placedChips.find(({ place: orgP }) => orgP === place)
+  ) {
+    state.kickSound1.currentTime = 0;
+    state.kickSound1.play();
+  } else {
+    state.kickSound2.currentTime = 0;
+    state.kickSound2.play();
+  }
   state.placedChips.push({ place, price });
 };
 export const placeChip = (context, { place, price }) => {
