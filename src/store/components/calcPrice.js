@@ -1,6 +1,6 @@
 export const PLACE_CHIP = (state, { place, price }) => {
-  state.kickSound2.currentTime = 0;
-  state.kickSound2.play();
+  state.kickSound1.currentTime = 0;
+  state.kickSound1.play();
   state.placedChips.push({ place, price });
 };
 export const placeChip = (context, { place, price }) => {
