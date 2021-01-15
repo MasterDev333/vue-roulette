@@ -1,4 +1,11 @@
+const moneyLeft = ({ money, placedChips }) => {
+  if (!placedChips) return money;
+  const sum = placedChips.map((el) => el.price).reduce((a, b) => a + b, 0);
+  return money - sum;
+};
+
 export const PLACE_CHIP = (state, { place, price }) => {
+  if (moneyLeft(state) < price) return;
   if (
     state.placedChips &&
     state.placedChips.find(({ place: orgP }) => orgP === place)
@@ -30,6 +37,8 @@ export const clearAll = (context) => {
 };
 
 export const DOUBLE_CHIP = (state) => {
+  const leftMoney = moneyLeft(state);
+  if (leftMoney < state.money - leftMoney) return;
   state.placedChips.push(...state.placedChips);
 };
 
