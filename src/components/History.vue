@@ -7,13 +7,7 @@
       <div class="history-items">
         <div
           class="history-item"
-          v-for="(history, index) in historyArr
-            .slice(
-              Math.max(0, historyArr.length - 12),
-              Math.max(12, historyArr.length)
-            )
-            .filter((h, i) => h !== undefined && !(i % 2))
-            .reverse()"
+          v-for="(history, index) in getFirstLineNumbers(historyArr)"
           :key="index"
         >
           <span
@@ -26,13 +20,7 @@
       <div class="history-items">
         <div
           class="history-item"
-          v-for="(history, index) in historyArr
-            .slice(
-              Math.max(0, historyArr.length - 12),
-              Math.max(12, historyArr.length)
-            )
-            .filter((h, i) => h !== undefined && i % 2)
-            .reverse()"
+          v-for="(history, index) in getSecondLineNumbers(historyArr)"
           :key="index"
         >
           <span
@@ -70,12 +58,31 @@ export default {
   },
   methods: {
     getColor(number) {
-      console.log("getColor", number);
       let index = -1;
       this.wheel_numbers.forEach((n, idx) => {
         if (n === number) index = idx;
       });
       return index !== -1 ? this.wheel_colors[index] : "transparent";
+    },
+    getLatest(array) {
+      const length = array ? array.length : 0;
+      if (!length) return [];
+
+      const latest = array
+        .slice(Math.max(0, length - 12), Math.max(12, length))
+        .filter((item) => item !== undefined)
+        .reverse();
+      return latest;
+    },
+    getFirstLineNumbers(array) {
+      const latest = this.getLatest(array);
+      const firstLine = latest.filter((item, index) => !(index % 2));
+      return [...firstLine, ...new Array(6 - firstLine.length)];
+    },
+    getSecondLineNumbers(array) {
+      const latest = this.getLatest(array);
+      const secondLine = latest.filter((item, index) => index % 2);
+      return [...secondLine, ...new Array(6 - secondLine.length)];
     },
   },
 };
@@ -130,7 +137,8 @@ export default {
       justify-content: center;
       height: 2.8vw;
       span {
-        transform: scale(0.9, 1);
+        transform: scale(1, 1.4);
+        font-weight: 400;
       }
     }
   }
