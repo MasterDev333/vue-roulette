@@ -12,7 +12,8 @@
               Math.max(0, historyArr.length - 12),
               Math.max(12, historyArr.length)
             )
-            .filter((h, i) => !(i % 2))"
+            .filter((h, i) => h !== undefined && !(i % 2))
+            .reverse()"
           :key="index"
         >
           <span
@@ -30,7 +31,8 @@
               Math.max(0, historyArr.length - 12),
               Math.max(12, historyArr.length)
             )
-            .filter((h, i) => i % 2)"
+            .filter((h, i) => h !== undefined && i % 2)
+            .reverse()"
           :key="index"
         >
           <span
@@ -68,6 +70,7 @@ export default {
   },
   methods: {
     getColor(number) {
+      console.log("getColor", number);
       let index = -1;
       this.wheel_numbers.forEach((n, idx) => {
         if (n === number) index = idx;
